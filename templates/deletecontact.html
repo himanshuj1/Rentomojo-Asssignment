@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete contacts</title>
+</head>
+<body>
+    <h1>Search contact to delete </h1><br>
+    
+    <h5>Note: Search and Enter complete name and email address to delete</h5>
+    <b><a href="http://127.0.0.1:8000/">Home</a></b>
+    <h2>
+        <form action=deletecontact method="POST">
+            {% csrf_token %}
+            <label for="Fullname">Complete Name:&nbsp;</label>
+            <input type="text" id="Fullname" name="Fullname"><br>
+    
+            <label for="emailadd">Complete Email:&nbsp;</label>
+            <input type="email" id="emailadd" name="emailadd"><br>
+
+            <input type="submit" value="Submit">
+            
+        </form>
+    </h2>
+    <h3>Total Result Found : {{Total}}</h3>
+    {% for i in searchcontacts %}
+    <b>{{i}}<b> <br>
+    {% endfor %}
+
+</body>
+</html>
